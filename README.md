@@ -1,9 +1,9 @@
-![plentymarkets Logo](http://www.plentymarkets.eu/layout/pm/images/logo/plentymarkets-logo.jpg)
+**Note: This is a fork from the original [repository](https://github.com/plentymarkets/plentymarkets-shopware-connector) because the connector is not updated anymore.**
 
 # PlentyConnector
 
 * **License:** MIT
-* **Repository:** [Github](https://github.com/plentymarkets/plentymarkets-shopware-connector)
+* **Repository:** [Github](https://github.com/bernhardk91/plentymarkets-shopware-connector)
 * **Documentation:** [Google Docs](https://docs.google.com/document/d/10mPeV3xqx4We71dYQdPmJK2qvb21Rpym6FG_tKwHKfc/edit?usp=sharing)
 
 ## Requirements
@@ -22,7 +22,7 @@
 
 **Prepare Plugin**
 * cd Shopware/custom/plugins
-* git clone https://github.com/plentymarkets/plentymarkets-shopware-connector.git PlentyConnector
+* git clone https://github.com/bernhardk91/plentymarkets-shopware-connector.git PlentyConnector
 * cd PlentyConnector
 * composer install --no-dev
 
