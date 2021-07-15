@@ -5,6 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+		<defaults public="true" />
         <!-- subscriber -->
 
         <service id="plenty_connector.subscriber.controller_path" class="PlentyConnector\Subscriber\ControllerPathSubscriber" public="true">

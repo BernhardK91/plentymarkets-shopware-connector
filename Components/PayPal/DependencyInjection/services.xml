@@ -6,6 +6,7 @@
     <!-- Services -->
 
     <services>
+		<defaults public="true" />
         <!-- PayPal Plus Invoice -->
 
         <service id="plenty_connector.components.paypal.invoice_validator" class="PlentyConnector\Components\PayPal\Validator\PayPalPlusInvoicePaymentDataValidator" public="true">

@@ -33,6 +33,8 @@
     </parameters>
 
     <services>
+		<defaults public="true" />
+		
         <!-- connector definitions -->
 
         <service id="plenty_connector.connector_definition.export_order" class="SystemConnector\DefinitionProvider\Struct\Definition" public="true">

@@ -5,6 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+		<defaults public="true" />
         <!-- console -->
 
         <service id="plenty_connector.console.command.backlog_info_command" class="SystemConnector\Console\Command\BacklogInfoCommand" public="true">

@@ -6,6 +6,8 @@
     <!-- Services -->
 
     <services>
+		<defaults public="true" />
+	
         <service id="plenty_connector.components.amazon_pay.payment_response_parser" class="PlentyConnector\Components\AmazonPay\Shopware\AmazonPayPaymentResponseParser" decorates="shopware_adapter.response_parser.payment" public="true">
             <argument type="service" id="plenty_connector.components.amazon_pay.payment_response_parser.inner" />
             <argument type="service" id="dbal_connection" />

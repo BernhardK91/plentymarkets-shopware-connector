@@ -5,6 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+		<defaults public="true" />
 
         <service id="plenty_connector_components_custom_products.response_parser.order_item" class="PlentyConnector\Components\CustomProducts\ShopwareAdapter\ResponseParser\Order\DecoratedOrderItemResponseParser" decorates="shopware_adapter.response_parser.order_item" public="true">
             <argument type="service" id="plenty_connector_components_custom_products.response_parser.order_item.inner" />

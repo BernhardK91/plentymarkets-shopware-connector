@@ -6,6 +6,7 @@
     <!-- Services -->
 
     <services>
+		<defaults public="true" />
 
         <!-- Guzzle -->
 
