@@ -1,5 +1,7 @@
 **Note: This is a fork from the original [repository](https://github.com/plentymarkets/plentymarkets-shopware-connector) because the connector is not updated anymore.**
 
+**This version is compatible to Shopware 5.7.x**
+
 # PlentyConnector
 
 * **License:** MIT
