@@ -7,7 +7,7 @@
     <services>
         <!-- logger -->
 
-        <service id="plenty_connector.logger.handler" class="Monolog\Handler\RotatingFileHandler" public="false">
+        <service id="plenty_connector.logger.handler" class="Monolog\Handler\RotatingFileHandler" public="true">
             <argument>%kernel.logs_dir%/plentyconnector_%kernel.environment%.log</argument>
             <argument>14</argument>
 
@@ -16,9 +16,9 @@
             </call>
         </service>
 
-        <service id="plenty_connector.logger.psr3processor" class="Monolog\Processor\PsrLogMessageProcessor" public="false" />
+        <service id="plenty_connector.logger.psr3processor" class="Monolog\Processor\PsrLogMessageProcessor" public="true" />
 
-        <service id="plenty_connector.logger" class="Monolog\Logger" public="false">
+        <service id="plenty_connector.logger" class="Monolog\Logger" public="true">
             <argument>plentyconnector</argument>
 
             <call method="pushHandler">
@@ -32,13 +32,13 @@
 
         <!-- config -->
 
-        <service id="plenty_connector.config_service" class="SystemConnector\ConfigService\ConfigService" public="false">
+        <service id="plenty_connector.config_service" class="SystemConnector\ConfigService\ConfigService" public="true">
             <argument type="tagged" tag="plenty_connector.config_storage" />
         </service>
 
         <!-- translation Helper -->
 
-        <service id="plenty_connector.translation_helper" class="SystemConnector\Translation\TranslationHelper" public="false" />
+        <service id="plenty_connector.translation_helper" class="SystemConnector\Translation\TranslationHelper" public="true" />
 
         <!-- connector -->
 
@@ -53,13 +53,13 @@
 
         <!-- definition factory -->
 
-        <service id="plenty_connector.definition_factory" class="SystemConnector\DefinitionFactory\DefinitionFactory" public="false">
+        <service id="plenty_connector.definition_factory" class="SystemConnector\DefinitionFactory\DefinitionFactory" public="true">
             <argument type="service" id="plenty_connector.validator_service" />
         </service>
 
         <!-- definition Provider -->
 
-        <service id="plenty_connector.definition_provider" class="SystemConnector\DefinitionProvider\DefinitionProvider" public="false">
+        <service id="plenty_connector.definition_provider" class="SystemConnector\DefinitionProvider\DefinitionProvider" public="true">
             <argument type="tagged" tag="plenty_connector.connector_definition" />
             <argument type="tagged" tag="plenty_connector.mapping_definition" />
             <argument type="tagged" tag="plenty_connector.cleanup_definition" />
@@ -67,7 +67,7 @@
 
         <!-- cleanup Service -->
 
-        <service id="plenty_connector.cleanup_service" class="SystemConnector\CleanupService\CleanupService" public="false">
+        <service id="plenty_connector.cleanup_service" class="SystemConnector\CleanupService\CleanupService" public="true">
             <argument type="service" id="plenty_connector.service_bus" />
             <argument type="service" id="plenty_connector.query_factory" />
             <argument type="service" id="plenty_connector.command_factory" />
@@ -96,54 +96,54 @@
 
         <!-- query Factory -->
 
-        <service id="plenty_connector.query_factory" class="SystemConnector\ServiceBus\QueryFactory\QueryFactory" public="false" />
+        <service id="plenty_connector.query_factory" class="SystemConnector\ServiceBus\QueryFactory\QueryFactory" public="true" />
 
         <!-- command Factory -->
 
-        <service id="plenty_connector.command_factory" class="SystemConnector\ServiceBus\CommandFactory\CommandFactory" public="false" />
+        <service id="plenty_connector.command_factory" class="SystemConnector\ServiceBus\CommandFactory\CommandFactory" public="true" />
 
         <!-- validator service -->
 
-        <service id="plenty_connector.validator_service" class="SystemConnector\ValidatorService\ValidatorService" public="false">
+        <service id="plenty_connector.validator_service" class="SystemConnector\ValidatorService\ValidatorService" public="true">
             <argument type="tagged" tag="plenty_connector.validator" />
         </service>
 
         <!-- backlog -->
 
-        <service id="plenty_connector.backlog_service" class="SystemConnector\BacklogService\BacklogService" public="false">
+        <service id="plenty_connector.backlog_service" class="SystemConnector\BacklogService\BacklogService" public="true">
             <argument type="tagged" tag="plenty_connector.backlog_storage" />
         </service>
 
-        <service id="plenty_connector.backlog_service.backlog_command_handler_middleware" class="SystemConnector\BacklogService\Middleware\BacklogCommandHandlerMiddleware" public="false">
+        <service id="plenty_connector.backlog_service.backlog_command_handler_middleware" class="SystemConnector\BacklogService\Middleware\BacklogCommandHandlerMiddleware" public="true">
             <argument type="service" id="plenty_connector.backlog_service" />
             <argument type="service" id="plenty_connector.logger" />
         </service>
 
         <!-- service Bus -->
 
-        <service id="plenty_connector.command_bus.command_handler_middleware" class="SystemConnector\ServiceBus\CommandHandlerMiddleware\CommandHandlerMiddleware" public="false">
+        <service id="plenty_connector.command_bus.command_handler_middleware" class="SystemConnector\ServiceBus\CommandHandlerMiddleware\CommandHandlerMiddleware" public="true">
             <argument type="tagged" tag="plenty_connector.command_handler" />
         </service>
 
-        <service id="plenty_connector.query_bus.query_handler_middleware" class="SystemConnector\ServiceBus\QueryHandlerMiddleware\QueryHandlerMiddleware" public="false">
+        <service id="plenty_connector.query_bus.query_handler_middleware" class="SystemConnector\ServiceBus\QueryHandlerMiddleware\QueryHandlerMiddleware" public="true">
             <argument type="tagged" tag="plenty_connector.query_handler" />
         </service>
 
-        <service id="plenty_connector.service_bus.validator_middleware" class="SystemConnector\ServiceBus\ValidatorMiddleware\ValidatorMiddleware" public="false">
+        <service id="plenty_connector.service_bus.validator_middleware" class="SystemConnector\ServiceBus\ValidatorMiddleware\ValidatorMiddleware" public="true">
             <argument type="service" id="plenty_connector.validator_service" />
         </service>
 
-        <service id="plenty_connector.service_bus.class_name_formatter" class="SystemConnector\Logger\ClassNameFormatter" public="false">
+        <service id="plenty_connector.service_bus.class_name_formatter" class="SystemConnector\Logger\ClassNameFormatter" public="true">
             <argument type="service" id="plenty_connector.logger" />
         </service>
 
-        <service id="plenty_connector.service_bus.logger_middleware" class="SystemConnector\Logger\LoggerMiddleware" public="false">
+        <service id="plenty_connector.service_bus.logger_middleware" class="SystemConnector\Logger\LoggerMiddleware" public="true">
             <argument type="service" id="plenty_connector.service_bus.class_name_formatter" />
         </service>
 
-        <service id="plenty_connector.service_bus_factory" class="SystemConnector\ServiceBus\ServiceBusFactory" public="false" />
+        <service id="plenty_connector.service_bus_factory" class="SystemConnector\ServiceBus\ServiceBusFactory" public="true" />
 
-        <service id="plenty_connector.service_bus" class="SystemConnector\ServiceBus\ServiceBus" public="false">
+        <service id="plenty_connector.service_bus" class="SystemConnector\ServiceBus\ServiceBus" public="true">
             <factory service="plenty_connector.service_bus_factory" method="factory" />
 
             <argument type="service" id="plenty_connector.backlog_service.backlog_command_handler_middleware" />
