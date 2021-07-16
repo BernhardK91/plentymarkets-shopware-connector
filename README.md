@@ -11,8 +11,8 @@
 ## Requirements
 
 * plentymarkets version >= 7
-* shopware version >= 5.5
-* php >= 7.1
+* shopware version >= 5.6
+* php >= 7.2
 * shell access
 * cronjobs
 * active plentymarkets webshop
@@ -23,13 +23,13 @@
 ### Git
 
 **Prepare Plugin**
-* cd Shopware/custom/plugins
+* cd [Shopware-Folder]/custom/plugins
 * git clone https://github.com/bernhardk91/plentymarkets-shopware-connector.git PlentyConnector
 * cd PlentyConnector
 * composer install --no-dev
 
 **Install Plugin**
-* cd Shopware
+* cd [Shopware-Folder]
 * ./bin/console sw:plugin:refresh
 * ./bin/console sw:plugin:install --activate PlentyConnector
 * ./bin/console sw:cache:clear
@@ -40,3 +40,33 @@
 * add and test api creddentials
 * complete all necessary mappings
 
+## Update Guide
+
+**Before you update the plugin, make sure to backup the PlentyConnector-folder (better your whole Shopware installation)!**
+
+You can update via git with the following steps. If you do not wan't to use git, 
+you can also download the files from github and paste them all into the 
+/custom/plugin/PlentyConnector-Folder (override all files) via FTP or SFTP.
+
+### Git clone
+
+Follow these steps if it is the first time you update from this git repository.
+
+* cd [Shopware-Folder]/custom/plugins/PlentyConnector
+* rm -rf ./* (**Attention: this will delete all the plugins files!**)
+* git clone https://github.com/bernhardk91/plentymarkets-shopware-connector.git .
+* composer install --no-dev
+* cd ../../../
+* ./bin/console sw:plugin:refresh
+* ./bin/console sw:cache:clear
+* visit yourshopwaredomain/backend
+* open Settings > PlentyConnector
+* got to Mappings and click "Save Settings"
+
+
+### Git pull
+
+If you already cloned the git repository you can seamply update by the following steps:
+
+* cd [Shopware-Folder]/custom/plugins/PlentyConnector
+* git pull
