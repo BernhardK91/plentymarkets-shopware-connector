@@ -11,6 +11,7 @@ namespace SystemConnector\Logger;
  * file that was distributed with this source code.
  */
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Formatter\FormatterInterface;
 use Monolog\Logger;
 use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
@@ -140,7 +141,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
     /**
      * Disables the output.
      */
-    public function close()
+    public function close(): void
     {
         $this->output = null;
 
@@ -150,7 +151,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
     /**
      * {@inheritdoc}
      */
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         // at this point we've determined for sure that we want to output the record, so use the output's own verbosity
         $this->output->write((string) $record['formatted'], false, $this->output->getVerbosity());
@@ -159,7 +160,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
     /**
      * {@inheritdoc}
      */
-    protected function getDefaultFormatter()
+    protected function getDefaultFormatter(): FormatterInterface
     {
         return new ConsoleFormatter();
     }
