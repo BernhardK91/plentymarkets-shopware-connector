@@ -53,12 +53,7 @@ class IdentityService implements IdentityServiceInterface
         ]);
 
         if (null === $identity) {
-            throw new NotFoundException(printf(
-                'Could not find identity for %s with identifier %s in %s.',
-                $objectType,
-                $adapterIdentifier,
-                $adapterName
-            ));
+            throw new NotFoundException('Could not find identity for '.$objectType.' with identifier '.$adapterIdentifier.' in '.$adapterName);
         }
 
         $this->validator->validate($identity);
