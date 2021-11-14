@@ -87,7 +87,7 @@ class OrderItemResponseParser implements OrderItemResponseParserInterface
             $taxModel = $this->taxRepository->findOneBy(['tax' => $entry['taxRate']]);
 
             if (null === $taxModel) {
-                throw new NotFoundException('no matching tax rate found - ' . $entry['taxRate']);
+                throw new NotFoundException('no matching tax rate found - tax_rate: ' . $entry['taxRate'] . ' / orderNumber: ' . $entry['number'] . ' / articleNumber: ' . $entry['articleNumber']);
             }
 
             $entry['taxId'] = $taxModel->getId();

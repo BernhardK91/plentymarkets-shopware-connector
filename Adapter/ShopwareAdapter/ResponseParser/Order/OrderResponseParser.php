@@ -312,7 +312,7 @@ class OrderResponseParser implements OrderResponseParserInterface
         }
 
         if (null === $taxModel) {
-            throw new NotFoundException('no matching tax rate found - ' . $entry['invoiceShippingTaxRate']);
+            throw new NotFoundException('no matching tax rate found - invoiceShippingTaxRate: ' . $entry['invoiceShippingTaxRate'] . ' / orderNumber: ' . $entry['number']);
         }
 
         $taxRateId = $taxModel->getId();
