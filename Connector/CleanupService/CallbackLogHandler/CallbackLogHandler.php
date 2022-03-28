@@ -32,7 +32,7 @@ class CallbackLogHandler extends AbstractProcessingHandler
     /**
      * {@inheritdoc}
      */
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         if ($this->isProcessing) {
             return;
