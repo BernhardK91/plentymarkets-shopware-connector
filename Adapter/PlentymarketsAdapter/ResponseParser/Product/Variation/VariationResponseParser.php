@@ -147,6 +147,10 @@ class VariationResponseParser implements VariationResponseParserInterface
                 PlentymarketsAdapter::NAME,
                 Variation::TYPE
             );
+            
+            if (empty($variation['unit'])) {
+                $variation['unit'] = $mainVariation['unit'];
+            }
 
             $variationObject = new Variation();
             $variationObject->setIdentifier($identity->getObjectIdentifier());
